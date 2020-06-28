@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
+<script>
+import * as types from './store/types';
+
+export default {
+  created(){
+    this.$store.dispatch(types.PULL_NOTES);
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
